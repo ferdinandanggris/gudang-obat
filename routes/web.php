@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FarmasiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JenisObatController;
 use App\Http\Controllers\PenerimaanObatController;
@@ -30,7 +31,9 @@ Route::resource('/obat', ObatController::class);
 // Route::get('/obat/hapus/{name}','ObatController@hapus');
 Route::resource('/dashboard', DashboardController::class);
 Route::resource('/transaksi-gudang', TransaksiGudangController::class);
-
+Route::get('/farmasi', [FarmasiController::class, 'index']);
+Route::get('/farmasi/penerimaan-obat', [FarmasiController::class, 'penerimaanObat']);
+Route::get('/farmasi/distribusi-obat', [FarmasiController::class, 'distribusiObat']);
 
 // Route Login
 Route::get('/user/register', [UserController::class, 'register'])->name('register');

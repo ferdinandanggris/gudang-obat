@@ -8,7 +8,7 @@
                         <!-- TABLE STRIPED -->
                         <div class="panel panel-headline">
                             <div class="panel-heading">
-                                <h1 class="panel-title">Farmasi : Daftar Obat</h1>
+                                <h1 class="panel-title">Farmasi : Penerimaan Obat</h1>
                             </div>
                             <div class="panel-body">
                                 <div class="mx-3">
@@ -16,24 +16,24 @@
                                         data-target="#exampleModal">
                                         Tambah Data
                                     </button>
-                                    <a href="/farmasi/penerimaan-obat" class="btn btn-warning" data-toggle="modal"
+                                    <button type="button" class="btn btn-warning" data-toggle="modal"
                                         data-target="#exampleModal">
                                         Penerimaan Obat
-                                    </a>
-                                    <a href="/farmasi/distribusi-obat" class="btn btn-success" data-toggle="modal"
+                                    </button>
+                                    <button type="button" class="btn btn-success" data-toggle="modal"
                                         data-target="#exampleModal">
                                         Distribusi Obat
-                                    </a>
+                                    </button>
                                 </div>
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
                                             <th scope="col">No</th>
-                                            <th scope="col">Nama Obat</th>
-                                            <th scope="col">Kategori Obat</th>
+                                            <th scope="col">Tanggal</th>
+                                            <th scope="col">Obat</th>
                                             <th scope="col">Jumlah</th>
                                             <th scope="col">Satuan</th>
-                                            <th scope="col">Tanggal Kadaluarsa</th>
+                                            <th scope="col">Keterangan</th>
                                         </tr>
                                     </thead>
                                     <tbody>

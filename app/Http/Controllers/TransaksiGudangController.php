@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\DetTransaksiGudang;
-use App\Models\JenisObat;
 use App\Models\Obat;
 use App\Models\TransaksiGudang;
 use Illuminate\Http\Request;
@@ -38,10 +37,9 @@ class TransaksiGudangController extends Controller
      */
     public function create()
     {
-        return view('transaksi-gudang.create',[
+        return view('transaksi-gudang.create', [
             'obats' => Obat::all()
         ]);
-
     }
 
     /**
@@ -51,7 +49,7 @@ class TransaksiGudangController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    { 
+    {
         /**
          * Variabel untuk menyimpan data transaksi gudang sementara
          * @var array transaksiGudang 
@@ -82,33 +80,33 @@ class TransaksiGudangController extends Controller
         /**
          * Looping data obat
          */
-        for ($i=0; $i < $request->jml_obat; $i++) { 
+        for ($i = 0; $i < $request->jml_obat; $i++) {
 
             /**
              * Variabel untuk menyimpan satu data obat
              * @var object $obat
              */
-            $obat = Obat::find($request->post()['obat_id_' . ($i+1)]);
+            $obat = Obat::find($request->post()['obat_id_' . ($i + 1)]);
 
             /**
              * Kondisi banyak jumlah obat 
              */
-            if(($obat->jumlah - $request->post()['jumlah_' . ($i+1)])<0){
+            if (($obat->jumlah - $request->post()['jumlah_' . ($i + 1)]) < 0) {
                 TransaksiGudang::destroy($lastTransaksiGudang->id);
-                return response('jumlah obat tidak mencukupi',422);
-            }else{
-                Obat::where('id',$obat->id)
-                    ->update(['jumlah' => $obat->jumlah - $request->post()['jumlah_' . ($i+1)],]);
+                return response('jumlah obat tidak mencukupi', 422);
+            } else {
+                Obat::where('id', $obat->id)
+                    ->update(['jumlah' => $obat->jumlah - $request->post()['jumlah_' . ($i + 1)],]);
             }
 
             /**
              * Memasukkan data ke 
              * @var array $detTransaksiGudang
              */
-            $detTransaksiGudang[$i] =[
+            $detTransaksiGudang[$i] = [
                 'id_transaksi_gudang' => $lastTransaksiGudang->id,
                 'name' => $obat->name,
-                'jumlah' => $request->post()['jumlah_' . ($i+1)],
+                'jumlah' => $request->post()['jumlah_' . ($i + 1)],
                 'tanggal_kadaluarsa' => $obat->tanggal_kadaluarsa,
                 'satuan' => $obat->satuan,
                 'jenis_obat' => $obat->jenisObat->type,

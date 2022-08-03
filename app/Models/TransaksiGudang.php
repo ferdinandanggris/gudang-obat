@@ -12,7 +12,13 @@ class TransaksiGudang extends Model
     protected $primaryKey = "id";
     protected $guarded = ['id'];
 
-    public function detTransaksiGudang(){
-        return $this->hasMany(DetTransaksiGudang::class,"id_transaksi_gudang","id");
+    public function detTransaksiGudang()
+    {
+        return $this->hasMany(DetTransaksiGudang::class, "id_transaksi_gudang", "id");
+    }
+
+    public function store(array $payload)
+    {
+        return $this->create($payload);
     }
 }

@@ -2,20 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DetTransaksiGudang;
 use App\Models\Obat;
-use App\Models\TransaksiGudang;
 use Illuminate\Http\Request;
+use App\Helpers\GudangHelper;
+use App\Models\TransaksiGudang;
+use App\Models\DetTransaksiGudang;
+use Illuminate\Support\Facades\Redirect;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class TransaksiGudangController extends Controller
 {
     protected $transaksiGudangModel;
     protected $obatModel;
+    protected $gudangHelper;
 
     public function __construct()
     {
         $this->transaksiGudangModel = new TransaksiGudang();
         $this->obatModel = new Obat();
+        $this->gudangHelper = new GudangHelper();
     }
     /**
      * Display a listing of the resource.
@@ -50,75 +55,13 @@ class TransaksiGudangController extends Controller
      */
     public function store(Request $request)
     {
-        /**
-         * Variabel untuk menyimpan data transaksi gudang sementara
-         * @var array transaksiGudang 
-         */
-        $transaksiGudang = [
-            'lokasi' => $request->lokasi,
-            'tanggal' => $request->tanggal,
-            'keterangan' => $request->keterangan,
-        ];
-
-        /**
-         * Menambahkan data ke tabel t_transaksi_gudang
-         */
-        TransaksiGudang::create($transaksiGudang);
-
-        /**
-         * Variabel untuk menyimpan data transaksiGudang terakhir
-         * @var object $lastTransaksiGudang
-         */
-        $lastTransaksiGudang = TransaksiGudang::latest()->first();
-
-        /**
-         * Variabel untuk menyimpan data detail Transaksi Gudang sementara
-         * @var array $detTransaksiGudang
-         */
-        $detTransaksiGudang = [];
-
-        /**
-         * Looping data obat
-         */
-        for ($i = 0; $i < $request->jml_obat; $i++) {
-
-            /**
-             * Variabel untuk menyimpan satu data obat
-             * @var object $obat
-             */
-            $obat = Obat::find($request->post()['obat_id_' . ($i + 1)]);
-
-            /**
-             * Kondisi banyak jumlah obat 
-             */
-            if (($obat->jumlah - $request->post()['jumlah_' . ($i + 1)]) < 0) {
-                TransaksiGudang::destroy($lastTransaksiGudang->id);
-                return response('jumlah obat tidak mencukupi', 422);
-            } else {
-                Obat::where('id', $obat->id)
-                    ->update(['jumlah' => $obat->jumlah - $request->post()['jumlah_' . ($i + 1)],]);
-            }
-
-            /**
-             * Memasukkan data ke 
-             * @var array $detTransaksiGudang
-             */
-            $detTransaksiGudang[$i] = [
-                'id_transaksi_gudang' => $lastTransaksiGudang->id,
-                'name' => $obat->name,
-                'jumlah' => $request->post()['jumlah_' . ($i + 1)],
-                'tanggal_kadaluarsa' => $obat->tanggal_kadaluarsa,
-                'satuan' => $obat->satuan,
-                'jenis_obat' => $obat->jenisObat->type,
-                'sumber_dana' => $obat->sumber_dana
-            ];
+        $dataGudang = $this->gudangHelper->create($request);
+        if ($dataGudang['status'] == true) {
+            Alert::success('Success', $dataGudang['message']);
+            return redirect('/transaksi-gudang');
         }
-
-        /**
-         * Menambahkan data ke tabel t_det_transaksi_gudang
-         */
-        DetTransaksiGudang::insert($detTransaksiGudang);
-        return redirect('/transaksi-gudang');
+        Alert::error('Gagal', $dataGudang['message']);
+        return Redirect::back();
     }
 
     /**

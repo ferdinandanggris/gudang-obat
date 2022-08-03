@@ -32,6 +32,7 @@ Route::resource('/obat', ObatController::class);
 Route::resource('/dashboard', DashboardController::class);
 Route::resource('/transaksi-gudang', TransaksiGudangController::class);
 Route::get('/farmasi', [FarmasiController::class, 'index']);
+Route::get('/farmasi/daftar-obat', [FarmasiController::class, 'index']);
 Route::get('/farmasi/penerimaan-obat', [FarmasiController::class, 'penerimaanObat']);
 Route::get('/farmasi/distribusi-obat', [FarmasiController::class, 'distribusiObat']);
 

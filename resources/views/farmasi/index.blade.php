@@ -12,17 +12,17 @@
                             </div>
                             <div class="panel-body">
                                 <div class="mx-3">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#exampleModal">
+                                    <button type="button" class="btn btn-primary" data-target="#exampleModal">
                                         Tambah Data
                                     </button>
-                                    <a href="/farmasi/penerimaan-obat" class="btn btn-warning" data-toggle="modal"
-                                        data-target="#exampleModal">
+                                    <a href="/farmasi/penerimaan-obat" class="btn btn-warning">
                                         Penerimaan Obat
                                     </a>
-                                    <a href="/farmasi/distribusi-obat" class="btn btn-success" data-toggle="modal"
-                                        data-target="#exampleModal">
+                                    <a href="/farmasi/distribusi-obat" class="btn btn-success">
                                         Distribusi Obat
+                                    </a>
+                                    <a href="/farmasi/daftar-obat" class="btn btn-success">
+                                        Daftar Obat
                                     </a>
                                 </div>
                                 <table class="table table-striped">

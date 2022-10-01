@@ -8,6 +8,7 @@ use App\Http\Controllers\PenerimaanObatController;
 use App\Http\Controllers\TransaksiGudangController;
 use App\Http\Controllers\ObatController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PolindesController;
 use Illuminate\Auth\Events\Login;
 
 /*
@@ -35,6 +36,9 @@ Route::get('/farmasi', [FarmasiController::class, 'index']);
 Route::get('/farmasi/daftar-obat', [FarmasiController::class, 'index']);
 Route::get('/farmasi/penerimaan-obat', [FarmasiController::class, 'penerimaanObat']);
 Route::get('/farmasi/distribusi-obat', [FarmasiController::class, 'distribusiObat']);
+
+//polindes
+Route::resource('/polindes', PolindesController::class);
 
 // Route Login
 Route::get('/user/register', [UserController::class, 'register'])->name('register');

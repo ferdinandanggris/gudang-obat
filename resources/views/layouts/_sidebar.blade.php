@@ -8,9 +8,9 @@
                          <span>Obat Masuk</span></a></li>
                  <li><a href="{{ route('obat.index') }}" class="active"><i class="fa fa-database"></i> <span>Gudang
                              Obat</span></a></li>
-                 <li><a href="/transaksi-gudang" class="active"><i class="fa fa-arrow-right-arrow-left"></i>
+                 <li><a href="/transaksi-gudang" class="active"><i class="fa fa-database"></i>
                          <span>Transaksi Gudang</span></a></li>
-                 <li><a href="/farmasi" class="active"><i class="fa fa-arrow-right-arrow-left"></i>
+                 <li><a href="/farmasi" class="active"><i class="fa fa-database"></i>
                          <span>Farmasi</span></a></li>
                  <!-- <li><a href="#" class=""><i class="lnr lnr-cog"></i> <span>Panels</span></a></li> -->
              </ul>

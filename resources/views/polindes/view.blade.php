@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @section('content')
-
 <div class="main">
   <!-- MAIN CONTENT -->
   <div class="main-content">
@@ -20,16 +19,15 @@
                 <thead>
                   <tr>
                     <th scope="col">No</th>
-                    <th scope="col">Kategori Obat</th>
+                    <th scope="col">Nama Obat</th>
+                    <th scope="col">Jenis Obat</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php foreach ($jenis_obats as $jb) : ?>
                     <tr>
-                      <th scope="row">1</th>
-                      <td>{{$jb->type}}</td>
+                        <td>Nama</td>
+                        <td>Jenis Obat</td>
                     </tr>
-                  <?php endforeach; ?>
                 </tbody>
               </table>
             </div>
@@ -66,5 +64,4 @@
       </div>
   </div>
 </div>
-      @endsection
-     
+@endsection('content')

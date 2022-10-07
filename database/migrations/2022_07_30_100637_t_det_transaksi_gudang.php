@@ -14,16 +14,16 @@ class TDetTransaksiGudang extends Migration
     public function up()
     {
         Schema::create('t_det_transaksi_gudang', function (Blueprint $table) {
-        $table->id();
-        $table->integer('id_transaksi_gudang');
-        $table->string('name');
-        $table->string('jumlah');
-        $table->dateTime('tanggal_kadaluarsa');
-        $table->string('satuan');
-        $table->string('jenis_obat');
-        $table->string('sumber_dana');
-        $table->timestamp('last_used_at')->nullable();
-        $table->timestamps();
+            $table->id();
+            $table->integer('id_transaksi_gudang');
+            $table->string('name');
+            $table->string('jumlah');
+            $table->date('tanggal_kadaluarsa');
+            $table->string('satuan');
+            $table->string('jenis_obat');
+            $table->string('sumber_dana');
+            $table->timestamp('last_used_at')->nullable();
+            $table->timestamps();
         });
     }
 

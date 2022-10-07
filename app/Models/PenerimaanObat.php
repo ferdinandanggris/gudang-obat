@@ -9,12 +9,14 @@ class PenerimaanObat extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+    protected $table = 't_penerimaan_obat';
     protected $fillable = [
         'sumber_dana',
-        'tanggal',   
+        'tanggal',
         'keterangan',
     ];
-    public function obats(){
-        return $this->hasMany(Obat::class,'penerimaan_obat_id','id');
+    public function obats()
+    {
+        return $this->hasMany(Obat::class, 'penerimaan_obat_id', 'id');
     }
 }

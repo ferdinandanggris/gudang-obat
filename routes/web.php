@@ -38,7 +38,8 @@ Route::get('/farmasi/penerimaan-obat', [FarmasiController::class, 'penerimaanOba
 Route::get('/farmasi/distribusi-obat', [FarmasiController::class, 'distribusiObat']);
 
 //polindes
-Route::resource('/polindes', PolindesController::class);
+Route::get('/polindes', [PolindesController::class, "index"]);
+Route::get('/polindes/{id}', [PolindesController::class, "show"]);
 
 // Route Login
 Route::get('/user/register', [UserController::class, 'register'])->name('register');

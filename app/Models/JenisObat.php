@@ -10,8 +10,10 @@ class JenisObat extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+    protected $table = 'm_jenis_obat';
 
-    public function obats(){
-        return $this->hasMany(Obat::class,'penerimaan_obat_id','id');
+    public function obats()
+    {
+        return $this->hasMany(Obat::class, 'penerimaan_obat_id', 'id');
     }
 }

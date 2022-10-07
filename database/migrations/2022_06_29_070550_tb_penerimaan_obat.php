@@ -13,7 +13,7 @@ class TbPenerimaanObat extends Migration
      */
     public function up()
     {
-        Schema::create('penerimaan_obats', function (Blueprint $table) {
+        Schema::create('t_penerimaan_obats', function (Blueprint $table) {
             $table->id();
             $table->string('sumber_dana');
             $table->string('tanggal');

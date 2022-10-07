@@ -13,7 +13,7 @@ class TbJenisObat extends Migration
      */
     public function up()
     {
-        Schema::create('jenis_obats', function (Blueprint $table) {
+        Schema::create('m_jenis_obat', function (Blueprint $table) {
             $table->id();
             $table->string('type');
             $table->timestamp('last_used_at')->nullable();

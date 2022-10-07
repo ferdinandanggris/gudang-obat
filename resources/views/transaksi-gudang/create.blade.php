@@ -13,8 +13,14 @@
           <div class="form-group">
             <label for="lokasi" class="form-label">Lokasi</label>
             <select class="form-control" aria-label="Default select example" id="lokasi" name="lokasi">
-              <option value="farmasi">Farmasi</option>
-              <option value="polindes">Polindes</option>
+              <option value="0">Farmasi</option>
+              @foreach ($farmasi as $fm)
+              @if ($fm->id==old('name'))
+              <option value="{{$fm->id}}" selected>{{$fm->name}}</option>
+              @else
+              <option value="{{$fm->id}}">{{$fm->name}}</option>
+              @endif
+              @endforeach
             </select>
           </div>
         </div>

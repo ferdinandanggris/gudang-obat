@@ -17,7 +17,12 @@ class ObatPolindes extends Model
 
     public function store($payload)
     {
-        
+
         return $this->create($payload);
+    }
+
+    public function polindes()
+    {
+        return $this->hasOne(Polindes::class, 'id', 'polindes_id');
     }
 }

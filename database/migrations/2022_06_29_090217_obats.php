@@ -13,11 +13,11 @@ class Obats extends Migration
      */
     public function up()
     {
-        Schema::create('obats', function (Blueprint $table) {
+        Schema::create('t_obat', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('jumlah');
-            $table->dateTime('tanggal_kadaluarsa');
+            $table->date('tanggal_kadaluarsa');
             $table->string('satuan');
             $table->foreignId('jenis_obat_id');
             $table->string('sumber_dana');

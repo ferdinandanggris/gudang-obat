@@ -12,6 +12,8 @@
                          <span>Transaksi Gudang</span></a></li>
                  <li><a href="/farmasi" class="active"><i class="fa fa-database"></i>
                          <span>Farmasi</span></a></li>
+                 <li><a href="/polindes" class="active"><i class="fa fa-database"></i>
+                         <span>Polindes</span></a></li>
                  <!-- <li><a href="#" class=""><i class="lnr lnr-cog"></i> <span>Panels</span></a></li> -->
              </ul>
          </nav>

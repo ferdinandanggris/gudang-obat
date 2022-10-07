@@ -9,19 +9,19 @@ class Obat extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+    protected $table = 't_obat';
     protected $fillable = [
-    'name',
-    'jumlah', 
-    'tanggal_kadaluarsa', 
-    'satuan', 
-    'jenis_obat_id', 
-    'sumber_dana',
-    'tanggal',
-    'keterangan',
+        'name',
+        'jumlah',
+        'tanggal_kadaluarsa',
+        'satuan',
+        'jenis_obat_id',
+        'sumber_dana',
+        'tanggal',
+        'keterangan',
     ];
-    public function jenisObat(){
-        return $this->hasOne(JenisObat::class,'id','jenis_obat_id');
+    public function jenisObat()
+    {
+        return $this->hasOne(JenisObat::class, 'id', 'jenis_obat_id');
     }
-
-
 }

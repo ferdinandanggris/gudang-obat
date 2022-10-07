@@ -21,4 +21,9 @@ class TransaksiGudang extends Model
     {
         return $this->create($payload);
     }
+
+    public function polindes()
+    {
+        return $this->hasOne(Polindes::class, 'id', 'lokasi');
+    }
 }

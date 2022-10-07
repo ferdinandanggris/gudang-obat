@@ -39,7 +39,7 @@
                                                 <th rowspan="{{ count($transaksi->detTransaksiGudang) }}">
                                                     {{ $transaksi->id }}</th>
                                                 <th rowspan="{{ count($transaksi->detTransaksiGudang) }}">
-                                                    {{ $transaksi->lokasi }}</th>
+                                                    {{ $transaksi->polindes->name ?? 'Farmasi' }}</th>
 
                                                 <th>{{ $transaksi->detTransaksiGudang[0]->name }}</th>
                                                 <th>{{ $transaksi->detTransaksiGudang[0]->jumlah }}</th>

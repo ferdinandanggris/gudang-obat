@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Obat;
+use App\Models\Polindes;
 use Illuminate\Http\Request;
 use App\Helpers\GudangHelper;
 use App\Models\TransaksiGudang;
@@ -43,7 +44,8 @@ class TransaksiGudangController extends Controller
     public function create()
     {
         return view('transaksi-gudang.create', [
-            'obats' => Obat::all()
+            'obats' => Obat::all(),
+            'farmasi' => Polindes::all()
         ]);
     }
 

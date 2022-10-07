@@ -38,10 +38,17 @@
                                     </thead>
                                     <tbody>
 
+                                        @foreach ($obats as $obat)
+                                            
                                         <tr>
-                                            <th scope="row">1</th>
-                                            <td>Nama Obat</td>
+                                            <th scope="row">{{$loop->iteration}}</th>
+                                            <td>{{$obat->name}}</td>
+                                            <td>{{$obat->jenis_obat}}</td>
+                                            <td>{{$obat->jumlah}}</td>
+                                            <td>{{$obat->satuan}}</td>
+                                            <td>{{$obat->tanggal_kadaluarsa}}</td>
                                         </tr>
+                                        @endforeach
 
                                     </tbody>
                                 </table>

@@ -15,16 +15,16 @@ class TObatPolindes extends Migration
     {
         Schema::create('t_obat_polindes', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_polindes');
             $table->string('name');
+            $table->string('polindes_id');
             $table->string('jumlah');
-            $table->dateTime('tanggal_kadaluarsa');
+            $table->date('tanggal_kadaluarsa');
             $table->string('satuan');
             $table->string('jenis_obat');
             $table->string('sumber_dana');
             $table->timestamp('last_used_at')->nullable();
             $table->timestamps();
-            });
+        });
     }
 
     /**
@@ -34,6 +34,5 @@ class TObatPolindes extends Migration
      */
     public function down()
     {
-        
     }
 }

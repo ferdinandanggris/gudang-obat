@@ -6,6 +6,7 @@ use Exception;
 use App\Models\Obat;
 use App\Models\TransaksiGudang;
 use App\Models\DetTransaksiGudang;
+use App\Models\ObatFarmasi;
 use App\Models\ObatPolindes;
 
 class DetGudangHelper
@@ -58,16 +59,17 @@ class DetGudangHelper
                 'sumber_dana' => $obat->sumber_dana
             ];
 
-            if ($request['lokasi']!='farmasi') {
+            if ($request['lokasi'] != '0') {
                 $obatPolindes = $detTransaksiGudang[$i];
-                $obatPolindes['nama_polindes'] = $request['lokasi'];
+                $obatPolindes['polindes_id'] = $request['lokasi'];
                 (new ObatPolindes())->store($obatPolindes);
+            } else {
+                (new ObatFarmasi())->store($detTransaksiGudang[$i]);
             }
 
             /**
              * Menambahkan data ke tabel t_det_transaksi_gudang
              */
-            
         }
         return DetTransaksiGudang::insert($detTransaksiGudang);
     }
